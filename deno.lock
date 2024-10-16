@@ -9,6 +9,8 @@
     "npm:express@*": "4.21.1",
     "npm:express@^4.21.1": "4.21.1",
     "npm:fs@*": "0.0.1-security",
+    "npm:https@*": "1.0.0",
+    "npm:https@1": "1.0.0",
     "npm:morgan@*": "1.10.0",
     "npm:swagger-ui-express@*": "5.0.1_express@4.21.1",
     "npm:yaml@*": "2.6.0"
@@ -247,6 +249,9 @@
         "toidentifier"
       ]
     },
+    "https@1.0.0": {
+      "integrity": "sha512-4EC57ddXrkaF0x83Oj8sM6SLQHAWXw90Skqu2M4AEWENZ3F02dFJE/GARA8igO79tcgYqGrD7ae4f5L3um2lgg=="
+    },
     "iconv-lite@0.4.24": {
       "integrity": "sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==",
       "dependencies": [
@@ -463,7 +468,8 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@1",
-      "npm:express@^4.21.1"
+      "npm:express@^4.21.1",
+      "npm:https@1"
     ]
   }
 }

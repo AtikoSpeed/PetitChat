@@ -1,6 +1,7 @@
 import app from "./server.js";
+import httpsServer from "./https.js";
 const port = 3000;
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}/`);
+httpsServer(app).listen(port, () => {
+  console.log(`Server is running on http://188.132.234.81:${port}/`);
 });
