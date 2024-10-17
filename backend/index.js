@@ -27,7 +27,7 @@ function handleMessage(message, uuid, username) {
   const messageData = JSON.stringify({
     uuid,
     username,
-    message: message.toString(),
+    message: JSON.parse(message),
   });
   // Sends the message and user data to each client connected to the websocket
   Object.keys(connections).forEach((uuid) => {
