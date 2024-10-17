@@ -36,6 +36,7 @@ export default function Chat() {
         onSubmit={(e) => {
           e.preventDefault();
           webSocket.sendJsonMessage(e.target.submitMessage.value);
+          e.target.submitMessage.value = "";
         }}
       >
         <input type="text" id="submitMessage" name="submitMessage" />
