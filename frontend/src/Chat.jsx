@@ -19,21 +19,19 @@ export default function Chat() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [webSocket.lastJsonMessage]);
 
-  const mappedMsg = messages.map((msg) => {
-    return (
-      <>
-        <p key={msg}>
-          <b>{msg.username}: </b>
-          {msg.message}
-        </p>
-      </>
-    );
-  });
-
   return (
     <>
       <h1>{username} Chatting</h1>
-      <div>{mappedMsg}</div>
+      {messages.map((msg) => {
+        return (
+          <div key={msg.msgId}>
+            <p>
+              <b>{msg.username}: </b>
+              {msg.message}
+            </p>
+          </div>
+        );
+      })}
       <form
         onSubmit={(e) => {
           e.preventDefault();

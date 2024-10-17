@@ -19,6 +19,7 @@ const wsServer = new WebSocketServer({ server });
 // List of connections and users
 const connections = {};
 const users = {};
+let msgId = 0;
 
 // Message handler
 function handleMessage(message, uuid, username) {
@@ -27,6 +28,7 @@ function handleMessage(message, uuid, username) {
   const messageData = JSON.stringify({
     uuid,
     username,
+    msgId,
     message: JSON.parse(message),
   });
   // Sends the message and user data to each client connected to the websocket
@@ -34,6 +36,7 @@ function handleMessage(message, uuid, username) {
     const connection = connections[uuid];
     connection.send(messageData);
   });
+  msgId++;
 }
 
 // Close handler for closed connections
