@@ -12,17 +12,16 @@ export default function Chat() {
   });
 
   const [messages, setMessages] = useState([]);
+
   useEffect(() => {
-    webSocket.lastJsonMessage
-      ? setMessages([...messages, webSocket.lastJsonMessage])
-      : "";
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    webSocket.lastJsonMessage ? setMessages(webSocket.lastJsonMessage) : "";
   }, [webSocket.lastJsonMessage]);
 
   return (
     <>
       <h1>{username} Chatting</h1>
       {messages.map((msg) => {
+        console.log("msg logged ", msg);
         return (
           <div key={msg.msgId}>
             <p>

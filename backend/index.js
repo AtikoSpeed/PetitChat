@@ -19,22 +19,25 @@ const wsServer = new WebSocketServer({ server });
 // List of connections and users
 const connections = {};
 const users = {};
+const messages = [];
 let msgId = 0;
 
 // Message handler
 function handleMessage(message, uuid, username) {
   // When message is sent to the server, it takes the message and user data
   console.log(`${users[uuid].username} said: ${message}`);
-  const messageData = JSON.stringify({
+  const messageData = {
     uuid,
     username,
     msgId,
     message: JSON.parse(message),
-  });
+  };
+  messages.push(messageData);
+  console.log(messages);
   // Sends the message and user data to each client connected to the websocket
   Object.keys(connections).forEach((uuid) => {
     const connection = connections[uuid];
-    connection.send(messageData);
+    connection.send(JSON.stringify(messages));
   });
   msgId++;
 }
