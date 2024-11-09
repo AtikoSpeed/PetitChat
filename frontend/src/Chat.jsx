@@ -32,14 +32,23 @@ export default function Chat() {
         );
       })}
       <form
+        className="join"
         onSubmit={(e) => {
           e.preventDefault();
           webSocket.sendJsonMessage(e.target.submitMessage.value);
           e.target.submitMessage.value = "";
         }}
       >
-        <input type="text" id="submitMessage" name="submitMessage" />
-        <button type="submit">Send</button>
+        <input
+          type="text"
+          className="input input-bordered join-item"
+          id="submitMessage"
+          name="submitMessage"
+          placeholder="Type your message"
+        />
+        <button type="submit" className="btn join-item">
+          Send
+        </button>
       </form>
     </>
   );
