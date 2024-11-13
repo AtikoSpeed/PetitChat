@@ -19,4 +19,4 @@ Contributions are welcome! Feel free to fork the repository, make changes, and s
 
 ## License
 
-This project is (un)licensed under the [MIT License](LICENSE).
+This project is (un)licensed under the [Unlicense](LICENSE).
