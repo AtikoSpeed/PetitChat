@@ -18,7 +18,7 @@ const port = 3000;
 const wsServer = new WebSocketServer({ server });
 // List of connections and users
 const connections = {};
-const users = {};
+const users = [];
 const messages = [];
 let msgId = 0;
 
@@ -53,13 +53,15 @@ function handleClose(uuid) {
 wsServer.on("connection", (con, req) => {
   const { username } = url.parse(req.url, true).query;
   const uuid = uuidv4();
-  console.log(username);
+  console.log(username, "connected");
 
   connections[uuid] = con;
 
   users[uuid] = {
     username,
   };
+
+  console.log(users)
 
   con.on("message", (message) => handleMessage(message, uuid, username));
   con.on("close", () => handleClose(uuid));
